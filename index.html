@@ -9,8 +9,9 @@
   <script src="game.js" defer></script>
 </head>
 <body>
+  <div class="rotate-note">↻ Turn your phone sideways for racing.</div>
   <main class="app">
-    <header class="topbar"><a class="brand" href="#" id="introHome" aria-label="Replay sunset opening">LIMITLESS OFFROAD<span>DIRT CIRCUIT CLUB</span></a><div class="edition"><i></i> THREE-RIDER RACE <span>VOL. 01 / PERRIS, CALIFORNIA</span></div><button id="soundButton" class="quiet" aria-pressed="true">Crowd sound: ON</button><button id="pauseButton" class="quiet" disabled>Pause <kbd>ESC</kbd></button></header>
+    <header class="topbar"><a class="brand" href="#" id="introHome" aria-label="Replay sunset opening">LIMITLESS OFFROAD<span>DIRT CIRCUIT CLUB</span></a><div class="edition"><i></i> THREE-RIDER RACE <span>VOL. 01 / PERRIS, CALIFORNIA</span></div><button id="fullscreenButton" class="quiet phone-only">Full screen</button><button id="soundButton" class="quiet" aria-pressed="true">Crowd sound: ON</button><button id="pauseButton" class="quiet" disabled>Pause <kbd>ESC</kbd></button></header>
     <section class="dashboard" aria-label="Race information">
       <div class="rider"><span class="label">RIDER / 07</span><strong id="riderName">YOUR LINE. YOUR TIME.</strong></div>
       <div><span class="label">LAP</span><strong><span id="lap">01</span><small> / 03</small></strong></div>
@@ -45,10 +46,11 @@
       </div>
       <div id="pauseMenu" class="overlay centered" hidden><div class="small-card"><span class="eyebrow">TAKE A BREATHER</span><h2>RIDE PAUSED.</h2><p>All three racers are paused.</p><button id="resumeButton" class="primary">BACK TO THE DIRT <span>ESC →</span></button><button id="restartButton" class="secondary">Restart race</button><button id="homeButton" class="secondary">Back to start menu</button></div></div>
       <div id="finishMenu" class="overlay centered" hidden><div class="small-card"><span id="resultLabel" class="eyebrow">THREE LAPS IN THE DUST</span><h2>NICE RUN, <span id="finishName">RIDER</span>.</h2><figure id="winnerPhoto" class="winner-photo" hidden><img id="winnerImage" alt=""><figcaption id="winnerCaption"></figcaption><a id="saveWinner" download="limitless-offroad-wheelie-win.png">Save finish photo ↓</a></figure><div id="finishTime" class="finish-time">00:00.00</div><p id="finishPosition" class="finish-position"></p><div id="raceResults" class="race-results"></div><div id="splits" class="splits"></div><button id="againButton" class="primary">RIDE AGAIN <span>SPACE →</span></button><button id="finishHome" class="secondary">Change rider</button></div></div>
+    <div class="touch-controls" aria-label="Touch driving controls"><button data-key="KeyA" aria-label="Steer left">←</button><button data-key="KeyD" aria-label="Steer right">→</button><button data-key="KeyW" class="wheelie">WHEELIE</button><button data-key="Space" class="gas">GAS</button></div>
       <div id="countdown" class="countdown" hidden aria-live="polite">3</div>
     </section>
     <footer><span><i></i> ANGLED 2.5D / ARCADE HANDLING</span><span><kbd>SPACE</kbd> GAS <kbd>A</kbd><kbd>D</kbd> STEER <kbd>W</kbd> WHEELIE <kbd>ESC</kbd> PAUSE</span><button id="resetButton" class="quiet" disabled>Recover bike <kbd>R</kbd></button></footer>
-    <div class="touch-controls" aria-label="Touch driving controls"><button data-key="KeyA" aria-label="Steer left">←</button><button data-key="KeyD" aria-label="Steer right">→</button><button data-key="KeyW">WHEELIE</button><button data-key="Space" class="gas">GAS</button></div>
+
     <p class="hint">Race the Perris circuit. Going off track only slows you down. Release the gas to coast through corners. Wheelies trade steering grip for style.</p>
   </main>
 </body>
