@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#202c28">
+  <title>LIMITLESS OFFROAD — Dirt Circuit</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar"><a class="brand" href="#" id="introHome" aria-label="Replay sunset opening">LIMITLESS OFFROAD<span>DIRT CIRCUIT CLUB</span></a><div class="edition"><i></i> THREE-RIDER RACE <span>VOL. 01 / PERRIS, CALIFORNIA</span></div><button id="soundButton" class="quiet" aria-pressed="true">Crowd sound: ON</button><button id="pauseButton" class="quiet" disabled>Pause <kbd>ESC</kbd></button></header>
+    <section class="dashboard" aria-label="Race information">
+      <div class="rider"><span class="label">RIDER / 07</span><strong id="riderName">YOUR LINE. YOUR TIME.</strong></div>
+      <div><span class="label">LAP</span><strong><span id="lap">01</span><small> / 03</small></strong></div>
+      <div><span class="label">RACE TIME</span><strong id="time">00:00.00</strong></div>
+      <div class="best"><span class="label">PERSONAL BEST</span><strong id="best">—</strong></div>
+    </section>
+    <section class="stage" aria-label="Motorcycle racing game">
+      <canvas id="game" width="1200" height="760" aria-label="Angled 2.5D dirt circuit. Space for gas, A and D to steer, W to wheelie." tabindex="0"></canvas>
+      <div class="track-label">01 <span>PERRIS, CALIFORNIA<br><b>DRY DIRT / 3 LAPS</b></span></div>
+      <aside class="race-order" aria-label="Race standings"><span class="label">POSITION <b id="position">1 / 3</b></span><ol id="standings"></ol></aside>
+      <div id="crowdCall" class="crowd-call" role="status" aria-live="polite" hidden></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <div class="telemetry"><div><span id="speed">0</span><small>MPH</small></div><div class="speed-track"><i id="speedBar"></i></div><span id="bikeStatus">READY TO RIDE</span></div>
+      <div id="intro" class="intro-screen">
+        <img id="introImage" src="assets/sunset-green-bike.png" alt="A green number 07 dirt bike on a hillside overlooking a race circuit at sunset.">
+        <div id="introCopy" class="intro-copy"><span class="eyebrow">PERRIS, CALIFORNIA / GOLDEN HOUR</span><h1>THE DIRT<br>IS CALLING.</h1><p>Your bike. Two rivals. One last ride before sundown.</p><button id="enterCircuit" class="primary">HEAD TO THE CIRCUIT <span>SPACE ↘</span></button></div>
+        <span id="flyoverCaption" class="flyover-caption" hidden>DOWN THE HILL. INTO THE RACE.</span>
+        <button id="skipIntro" class="skip-intro">Skip intro ↗</button>
+      </div>
+      <div id="menu" class="overlay" hidden>
+        <div class="menu-card">
+          <span class="eyebrow">TWO RIVALS. ONE FINISH LINE.</span>
+          <h1>FIND YOUR<br>DIRT LINE<span>.</span></h1>
+          <p>Three riders. Three dusty laps.<br>Beat Rook and Vale to the finish line.</p>
+          <label for="playerName">RIDER NAME <span>8 CHARACTERS MAX</span></label>
+          <input id="playerName" maxlength="8" placeholder="RIDER" autocomplete="off" spellcheck="false" aria-describedby="nameHelp">
+          <span id="nameHelp" class="input-help">Choose your race name, then hit the gas.</span>
+          <button id="startButton" class="primary">LET’S RIDE <span>SPACE →</span></button>
+          <div class="menu-controls"><span><kbd>SPACE</kbd> GAS</span><span><kbd>A</kbd><kbd>D</kbd> STEER</span><span><kbd>W</kbd> WHEELIE</span></div>
+        </div>
+        <div class="menu-stamp">TAKE THE<br>LONG WAY.<span>↗</span></div>
+      </div>
+      <div id="pauseMenu" class="overlay centered" hidden><div class="small-card"><span class="eyebrow">TAKE A BREATHER</span><h2>RIDE PAUSED.</h2><p>All three racers are paused.</p><button id="resumeButton" class="primary">BACK TO THE DIRT <span>ESC →</span></button><button id="restartButton" class="secondary">Restart race</button><button id="homeButton" class="secondary">Back to start menu</button></div></div>
+      <div id="finishMenu" class="overlay centered" hidden><div class="small-card"><span id="resultLabel" class="eyebrow">THREE LAPS IN THE DUST</span><h2>NICE RUN, <span id="finishName">RIDER</span>.</h2><figure id="winnerPhoto" class="winner-photo" hidden><img id="winnerImage" alt=""><figcaption id="winnerCaption"></figcaption><a id="saveWinner" download="limitless-offroad-wheelie-win.png">Save finish photo ↓</a></figure><div id="finishTime" class="finish-time">00:00.00</div><p id="finishPosition" class="finish-position"></p><div id="raceResults" class="race-results"></div><div id="splits" class="splits"></div><button id="againButton" class="primary">RIDE AGAIN <span>SPACE →</span></button><button id="finishHome" class="secondary">Change rider</button></div></div>
+      <div id="countdown" class="countdown" hidden aria-live="polite">3</div>
+    </section>
+    <footer><span><i></i> ANGLED 2.5D / ARCADE HANDLING</span><span><kbd>SPACE</kbd> GAS <kbd>A</kbd><kbd>D</kbd> STEER <kbd>W</kbd> WHEELIE <kbd>ESC</kbd> PAUSE</span><button id="resetButton" class="quiet" disabled>Recover bike <kbd>R</kbd></button></footer>
+    <div class="touch-controls" aria-label="Touch driving controls"><button data-key="KeyA" aria-label="Steer left">←</button><button data-key="KeyD" aria-label="Steer right">→</button><button data-key="KeyW">WHEELIE</button><button data-key="Space" class="gas">GAS</button></div>
+    <p class="hint">Race the Perris circuit. Going off track only slows you down. Release the gas to coast through corners. Wheelies trade steering grip for style.</p>
+  </main>
+</body>
+</html>
